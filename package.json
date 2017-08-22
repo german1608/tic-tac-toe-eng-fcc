@@ -1,0 +1,25 @@
+{
+  "name": "tic-tac-toe-eng-fcc",
+  "version": "1.0.0",
+  "description": "A tic-tac-toe AI engine for a fCC project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/german1608/tic-tac-toe-eng-fcc.git"
+  },
+  "keywords": [
+    "tdd",
+    "tic-tac-toe",
+    "AI",
+    "javascript"
+  ],
+  "author": "German Robayo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/german1608/tic-tac-toe-eng-fcc/issues"
+  },
+  "homepage": "https://github.com/german1608/tic-tac-toe-eng-fcc#readme"
+}
