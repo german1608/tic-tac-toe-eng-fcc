@@ -1,5 +1,29 @@
 module.exports = {
-  gameWin (game) {
+  cpufirstPlayer () {
+    /*
+     * Description
+     *  Function that determines who'll be the first player between 
+     *  the CPU or the human
+     *
+     * Parameters:
+     *  none
+     *
+     * Return:
+     *  if the random number is less or equal than 2 (75% prob) the
+     *  first player will be the CPU. Otherwise, the human.
+     */
+    const num = Math.floor(Math.random() * 4)
+    
+    return num <= 2
+  },
+
+  // Default gameState
+  gameState: [
+    ' ', ' ', ' ',
+    ' ', ' ', ' ',
+    ' ', ' ', ' '
+  ],
+  gameWin () {
     /*
      * Description:
      *  Function that takes an array representing a tic-tac-toe
@@ -12,6 +36,7 @@ module.exports = {
      *  true if it's a winning game, false otherwise.
     */
     // Testing for rows matches
+    const game = this.gameState
     return (game[0] === 'x' && game[1] === 'x' && game[2] === 'x') ||
       (game[3] === 'x' && game[4] === 'x' && game[5] === 'x') ||
       (game[6] === 'x' && game[7] === 'x' && game[8] === 'x') ||

@@ -1,5 +1,5 @@
 const test = require('tape')
-const {gameWin} = require('../index.js')
+const gameEngine = require('../index.js')
 
 test(`gameWin(Array) should return true when the game is
   x | x | x
@@ -8,11 +8,13 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     |   |
  `, function (t) {
-  const bool = gameWin([
+
+  gameEngine.gameState = [
     'x', 'x', 'x',
     ' ', ' ', ' ',
     ' ', ' ', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -24,11 +26,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     |   |
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     'o', 'o', 'o',
     ' ', ' ', ' ',
     ' ', ' ', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -40,11 +43,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     |   |
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', ' ', ' ',
     'x', 'x', 'x',
     ' ', ' ', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -56,11 +60,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     |   |
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', ' ', ' ',
     'o', 'o', 'o',
     ' ', ' ', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -72,11 +77,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
   x | x | x 
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', ' ', ' ',
     'x', 'x', 'x'
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -88,11 +94,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
   o | o | o 
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', ' ', ' ',
     'o', 'o', 'o'
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -104,11 +111,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
   x |   |  
 `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', ' ', 'x',
     ' ', 'x', ' ',
     'x', ' ', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -120,11 +128,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
   o |   |  
 `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', ' ', 'o',
     ' ', 'o', ' ',
     'o', ' ', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -136,11 +145,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     |   | x 
 `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     'x', ' ', ' ',
     ' ', 'x', ' ',
     ' ', ' ', 'x'
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -152,11 +162,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     |   | o
 `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     'o', ' ', ' ',
     ' ', 'o', ' ',
     ' ', ' ', 'o'
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -168,11 +179,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
   x |   |
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     'x', ' ', ' ',
     'x', ' ', ' ',
     'x', ' ', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -184,11 +196,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
   o |   |
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     'o', ' ', ' ',
     'o', ' ', ' ',
     'o', ' ', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -200,11 +213,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     | x |
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', 'x', ' ',
     ' ', 'x', ' ',
     ' ', 'x', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -216,11 +230,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     | o |
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', 'o', ' ',
     ' ', 'o', ' ',
     ' ', 'o', ' '
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -232,11 +247,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     |   | x 
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', ' ', 'x',
     ' ', ' ', 'x',
     ' ', ' ', 'x'
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
@@ -248,11 +264,12 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     |   | o 
  `, function (t) {
-  const bool = gameWin([
+  gameEngine.gameState = [
     ' ', ' ', 'o',
     ' ', ' ', 'o',
     ' ', ' ', 'o'
-  ])
+  ]
+  const bool = gameEngine.gameWin()
   t.equal(bool, true)
   t.end()
 })
