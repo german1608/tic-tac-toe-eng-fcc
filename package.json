@@ -4,7 +4,8 @@
   "description": "A tic-tac-toe AI engine for a fCC project",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "lint": "standard index.js test/*.js",
+    "cover": "istanbul cover"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/german1608/tic-tac-toe-eng-fcc/issues"
   },
-  "homepage": "https://github.com/german1608/tic-tac-toe-eng-fcc#readme"
+  "homepage": "https://github.com/german1608/tic-tac-toe-eng-fcc#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "standard": "^10.0.3",
+    "tape": "^4.8.0"
+  }
 }
