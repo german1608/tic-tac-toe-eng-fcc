@@ -256,4 +256,3 @@ test(`gameWin(Array) should return true when the game is
   t.equal(bool, true)
   t.end()
 })
-

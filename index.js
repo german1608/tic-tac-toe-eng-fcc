@@ -20,7 +20,7 @@ module.exports = {
       (game[6] === 'o' && game[7] === 'o' && game[8] === 'o') ||
     // Testing for diagonal matches
       (game[0] === 'x' && game[4] === 'x' && game[8] === 'x') ||
-      (game[2] === 'x' && game[4] === 'x' && game[6] === 'x') || 
+      (game[2] === 'x' && game[4] === 'x' && game[6] === 'x') ||
       (game[0] === 'o' && game[4] === 'o' && game[8] === 'o') ||
       (game[2] === 'o' && game[4] === 'o' && game[6] === 'o') ||
     // Testing for columns
@@ -30,5 +30,5 @@ module.exports = {
       (game[0] === 'o' && game[3] === 'o' && game[6] === 'o') ||
       (game[1] === 'o' && game[4] === 'o' && game[7] === 'o') ||
       (game[2] === 'o' && game[5] === 'o' && game[8] === 'o')
-}
+  }
 }
