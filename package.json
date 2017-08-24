@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard index.js test/*.js",
-    "cover": "istanbul cover"
+    "cover": "istanbul cover ./node_modules/.bin/tape -- test/*.js"
   },
   "repository": {
     "type": "git",
