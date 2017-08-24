@@ -8,7 +8,6 @@ test(`gameWin(Array) should return true when the game is
  ---+---+---
     |   |
  `, function (t) {
-
   gameEngine.gameState = [
     'x', 'x', 'x',
     ' ', ' ', ' ',
