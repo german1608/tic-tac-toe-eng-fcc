@@ -407,4 +407,3 @@ test(`checkForWinMove() returns false at this case
   console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
-
