@@ -1,8 +1,45 @@
 module.exports = {
+  gameTurn: 1,
+  cpuSymbol: '',
+  cpuStart: true,
+  // Default gameState
+  gameState: [
+    ' ', ' ', ' ',
+    ' ', ' ', ' ',
+    ' ', ' ', ' '
+  ],
+  print () {
+    const g = this.gameState
+    return ` ${g[0]} | ${g[1]} | ${g[2]}\n---+---+---\n ${g[3]} | ${g[4]} | ${g[5]}\n---+---+---\n ${g[6]} | ${g[7]} | ${g[8]}`
+  },
+  checkForWinMove () {
+    /*
+     * Description:
+     *  Function that checks if the cpu can win at that the current turn
+     *
+     * Parameters:
+     *  None
+     *
+     * Return:
+     *  True if the computer can win at that turn. Also change this.gameState
+     *  False otherwise
+     */
+    for (let i = 0; i < 9; ++i) {
+      if (this.gameState[i] === ' ') {
+        this.gameState[i] = this.cpuSymbol
+        if (this.gameWin()) {
+          return true
+        }
+        this.gameState[i] = ' '
+      }
+    }
+    return false
+  },
+  /* istanbul ignore next */
   cpufirstPlayer () {
     /*
      * Description
-     *  Function that determines who'll be the first player between 
+     *  Function that determines who'll be the first player between
      *  the CPU or the human
      *
      * Parameters:
@@ -12,17 +49,12 @@ module.exports = {
      *  if the random number is less or equal than 2 (75% prob) the
      *  first player will be the CPU. Otherwise, the human.
      */
+    /* istanbul ignore next */
     const num = Math.floor(Math.random() * 4)
-    
+    /* istanbul ignore next */
     return num <= 2
   },
 
-  // Default gameState
-  gameState: [
-    ' ', ' ', ' ',
-    ' ', ' ', ' ',
-    ' ', ' ', ' '
-  ],
   gameWin () {
     /*
      * Description:
@@ -30,7 +62,7 @@ module.exports = {
      *  game and determines if it's a winning game.
      *
      * Parameters:
-     *  game: array of characters.
+     *  none
      *
      * Return:
      *  true if it's a winning game, false otherwise.
