@@ -10,232 +10,142 @@ gameEngine.cpuSymbol = 'x'
 
 // First Row
 
-test(`
-             o | o |                                  o | o | x 
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    |   |   
-            ---+---+---                              ---+---+---
-               |   |                                    |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     'o', 'o', ' ',
     ' ', ' ', ' ',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = 'oox      '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, `The cpu defended itself:`)
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-             o |   | o                                o | x | o 
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    |   |   
-            ---+---+---                              ---+---+---
-               |   |                                    |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     'o', ' ', 'o',
     ' ', ' ', ' ',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = 'oxo      '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               | o | o                                x | o | o 
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    |   |   
-            ---+---+---                              ---+---+---
-               |   |                                    |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', 'o', 'o',
     ' ', ' ', ' ',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = 'xoo      '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
 // Second Row
 
-test(`
-               |   |                                    |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(  o | o |    ) should change gameState to  o | o | x 
-            ---+---+---                              ---+---+---
-               |   |                                    |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     'o', 'o', ' ',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '   oox   '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   |                                    |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(  o |   | o  ) should change gameState to  o | x | o 
-            ---+---+---                              ---+---+---
-               |   |                                    |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     'o', ' ', 'o',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '   oxo   '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   |                                    |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    | o | o  ) should change gameState to  x | o | o 
-            ---+---+---                              ---+---+---
-               |   |                                    |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', 'o', 'o',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '   xoo   '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
 // Third Row
 
-test(`
-               |   |                                    |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    |   |   
-            ---+---+---                              ---+---+---
-             o | o |                                  o | o | x `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', ' ', ' ',
     'o', 'o', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '      oox'
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   |                                    |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    |   |   
-            ---+---+---                              ---+---+---
-             o |   | o                                o | x | o `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', ' ', ' ',
     'o', ' ', 'o'
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '      oxo'
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   |                                    |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    |   |   
-            ---+---+---                              ---+---+---
-               | o | o                                x | o | o `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', ' ', ' ',
     ' ', 'o', 'o'
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '      xoo'
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
@@ -245,232 +155,142 @@ function (t) {
 
 // First Col
 
-test(`
-             o |   |                                  o |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(  o |   |    ) should change gameState to  o |   |   
-            ---+---+---                              ---+---+---
-               |   |                                  x |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     'o', ' ', ' ',
     'o', ' ', ' ',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = 'o  o  x  '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-             o |   |                                  o |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to  x |   |   
-            ---+---+---                              ---+---+---
-             o |   |                                  o |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     'o', ' ', ' ',
     ' ', ' ', ' ',
     'o', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = 'o  x  o  '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   |                                  x |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(  o |   |    ) should change gameState to  o |   |   
-            ---+---+---                              ---+---+---
-             o |   |                                  o |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     'o', ' ', ' ',
     'o', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = 'x  o  o  '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
 // Second Col
 
-test(`
-               | o |                                    | o |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    | o |    ) should change gameState to    | o |   
-            ---+---+---                              ---+---+---
-               |   |                                    | x |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', 'o', ' ',
     ' ', 'o', ' ',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = ' o  o  x '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               | o |                                    | o |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    | x |   
-            ---+---+---                              ---+---+---
-               | o |                                    | o |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', 'o', ' ',
     ' ', ' ', ' ',
     ' ', 'o', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = ' o  x  o '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   |                                    | x |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    | o |    ) should change gameState to    | o |   
-            ---+---+---                              ---+---+---
-               | o |                                    | o |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', 'o', ' ',
     ' ', 'o', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = ' x  o  o '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
 // Third Col
 
-test(`
-               |   | o                                  |   | o 
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   | o  ) should change gameState to    |   | o 
-            ---+---+---                              ---+---+---
-               |   |                                    |   | x `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', 'o',
     ' ', ' ', 'o',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '  o  o  x'
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   | o                                  |   | o 
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    |   | x 
-            ---+---+---                              ---+---+---
-               |   | o                                  |   | o `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', 'o',
     ' ', ' ', ' ',
     ' ', ' ', 'o'
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '  o  x  o'
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   |                                    |   | x 
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   | o  ) should change gameState to    |   | o 
-            ---+---+---                              ---+---+---
-               |   | o                                  |   | o `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', ' ', 'o',
     ' ', ' ', 'o'
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '  x  o  o'
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
@@ -480,155 +300,95 @@ function (t) {
 
 // Main Diag
 
-test(`
-             o |   |                                  o |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    | o |    ) should change gameState to    | o |   
-            ---+---+---                              ---+---+---
-               |   |                                    |   | x `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     'o', ' ', ' ',
     ' ', 'o', ' ',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = 'o   o   x'
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-             o |   |                                  o |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    | x |   
-            ---+---+---                              ---+---+---
-               |   | o                                  |   | o `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     'o', ' ', ' ',
     ' ', ' ', ' ',
     ' ', ' ', 'o'
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = 'o   x   o'
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   |                                  x |   |   
-            ---+---+---                              ---+---+--- 
-cpuDefends(    | o |    ) should change gameState to    | o |   
-            ---+---+---                              ---+---+---
-               |   | o                                  |   | o `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', 'o', ' ',
     ' ', ' ', 'o'
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = 'x   o   o'
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
 // Secondary Diag
 
-test(`
-               |   |                                    |   | x 
-            ---+---+---                              ---+---+--- 
-cpuDefends(    | o |    ) should change gameState to    | o |   
-            ---+---+---                              ---+---+---
-             o |   |                                  o |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', ' ',
     ' ', 'o', ' ',
     'o', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '  x o o  '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   | o                                  |   | o 
-            ---+---+---                              ---+---+--- 
-cpuDefends(    |   |    ) should change gameState to    | x |   
-            ---+---+---                              ---+---+---
-             o |   |                                  o |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', 'o',
     ' ', ' ', ' ',
     'o', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '  o x o  '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
-test(`
-               |   | o                                  |   | o 
-            ---+---+---                              ---+---+--- 
-cpuDefends(    | o |    ) should change gameState to    | o |   
-            ---+---+---                              ---+---+---
-               |   |                                  x |   |   `,
-function (t) {
+test('The cpu should defend itself of this:', function (t) {
   gameEngine.gameState = [
     ' ', ' ', 'o',
     ' ', 'o', ' ',
     ' ', ' ', ' '
   ]
+  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
-  const gameState = gameEngine.gameState.join('')
-  const expected = '  o o x  '
-
-  // Checks that the gameState is what we expect
-  t.deepEqual(gameState, expected, 'The cpu made the best play')
-  console.log(gameEngine.print())
 
   // Checks that it defended itself
-  t.deepEqual(bool, true, 'The cpu defended itself')
+  t.ok(bool, 'The cpu defended itself')
+  console.log(gameEngine.print())
   t.end()
 })
 
@@ -665,6 +425,7 @@ function randomBoard () {
   gameEngine.cpuSymbol = 'x'
   return false
 }
+
 const numTest = 10
 for (let i = 0; i < numTest; i++) {
   test(`The cpu should defend this?`, function (t) {
@@ -682,4 +443,4 @@ for (let i = 0; i < numTest; i++) {
     }
     t.end()
   })
-}
+k
