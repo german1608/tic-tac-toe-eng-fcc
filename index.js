@@ -24,6 +24,7 @@ module.exports = {
      * Return:
      *  True if the cpu has to defend itself, false otherwise
      */
+    /* istanbul ignore next */
     const playerSymbol = this.cpuSymbol === 'o' ? 'x' : 'o'
     for (let i = 0; i < 9; ++i) {
       if (this.gameState[i] === ' ') {
