@@ -26,7 +26,7 @@ module.exports = {
      *  True if the cpu has to defend itself, false otherwise
      */
     /* istanbul ignore next */
-    const playerSymbol = this.cpuSymbol === 'o' ? 'x' : 'o'
+    const playerSymbol = this.cpuSymbol === 'o' ? 'x' : 'o';
     for (let i = 0; i < 9; ++i) {
       if (this.gameState[i] === ' ') {
         this.gameState[i] = playerSymbol
@@ -54,14 +54,31 @@ module.exports = {
     if (this.checkForWinMove() || this.cpuDefends()) { return }
 
     const humanSymbol = this.cpuSymbol === 'x' ? 'o' : 'x'
+    const {gameState, cpuSymbol} = this
     switch (this.gameTurn) {
       case 1:
-        this.gameState[8] = this.cpuSymbol
+        this.gameState[8] = cpuSymbol
         break
       case 2:
+        const playedInACorner = gameState[0] === humanSymbol ||
+          gameState[2] === humanSymbol ||
+          gameState[6] === humanSymbol ||
+          gameState[8] === humanSymbol
+        if (playedInACorner) {
+          gameState[4] = cpuSymbol
+        }
         break
       case 3:
-        if (
+        break
+      case 4:
+        break
+      case 5:
+        break
+      case 6:
+        break
+      case 7:
+        break
+      case 8:
         break
       default:
         break
