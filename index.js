@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-return */
 module.exports = {
   gameTurn: 1,
   cpuSymbol: '',
@@ -31,12 +32,41 @@ module.exports = {
         this.gameState[i] = playerSymbol
         if (this.gameWin()) {
           this.gameState[i] = this.cpuSymbol
+          this.gameTurn++
           return true
         }
         this.gameState[i] = ' '
       }
     }
     return false
+  },
+  bestMove () {
+    /*
+     * Description:
+     *  Function that determines the best move for the cpu
+     *
+     * Parameters:
+     *  none
+     *
+     * Return:
+     *  Changes this.gameState.
+     */
+    if (this.checkForWinMove() || this.cpuDefends()) { return }
+
+    const humanSymbol = this.cpuSymbol === 'x' ? 'o' : 'x'
+    switch (this.gameTurn) {
+      case 1:
+        this.gameState[8] = this.cpuSymbol
+        break
+      case 2:
+        break
+      case 3:
+        if (
+        break
+      default:
+        break
+    }
+    this.gameTurn++
   },
   checkForWinMove () {
     /*
@@ -115,3 +145,4 @@ module.exports = {
       (game[2] === 'o' && game[5] === 'o' && game[8] === 'o')
   }
 }
+/* eslint-disable no-useless-return */
