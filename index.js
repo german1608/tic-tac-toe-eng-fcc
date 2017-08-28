@@ -53,22 +53,42 @@ module.exports = {
      */
     if (this.checkForWinMove() || this.cpuDefends()) { return }
 
-    const humanSymbol = this.cpuSymbol === 'x' ? 'o' : 'x'
     const {gameState, cpuSymbol} = this
+    const humanSymbol = cpuSymbol === 'x' ? 'o' : 'x'
+    const playedInTheCenter = gameState[4] === humanSymbol
+    const playedInAnEdge = gameState[1] === humanSymbol ||
+      gameState[3] === humanSymbol ||
+      gameState[5] === humanSymbol ||
+      gameState[7] === humanSymbol
     switch (this.gameTurn) {
       case 1:
         this.gameState[8] = cpuSymbol
         break
       case 2:
-        const playedInACorner = gameState[0] === humanSymbol ||
-          gameState[2] === humanSymbol ||
-          gameState[6] === humanSymbol ||
-          gameState[8] === humanSymbol
-        if (playedInACorner) {
+        if (playedInTheCenter) {
+          gameState[8] = cpuSymbol
+        } else {
           gameState[4] = cpuSymbol
         }
         break
       case 3:
+        if (playedInTheCenter) {
+          gameState[0] = cpuSymbol
+        } else if (playedInAnEdge) {
+          if (gameState[7] === humanSymbol) {
+            gameState[2] = cpuSymbol
+          } else {
+            gameState[6] = cpuSymbol
+          }
+        } else {
+          if (gameState[0] === humanSymbol) {
+            gameState[3] = cpuSymbol
+          } else if (gameState[2] === humanSymbol) {
+            gameState[6] = cpuSymbol
+          } else {
+            gameState[2] = cpuSymbol
+          }
+        }
         break
       case 4:
         break
