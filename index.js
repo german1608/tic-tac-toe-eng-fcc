@@ -60,28 +60,61 @@ module.exports = {
       gameState[3] === humanSymbol ||
       gameState[5] === humanSymbol ||
       gameState[7] === humanSymbol
+    const playedInACorner = !playedInTheCenter && !playedInAnEdge
+    let numCorners = 0
+    let numEdges = 0
+    gameState.forEach((box, i) => {
+      if (box === humanSymbol) {
+        if (i === 0 || i === 2 || i === 6 || i === 8) {
+          numCorners++
+        } else numEdges++
+      }
+    })
+    console.log(numCorners, numEdges)
     let i = 0
     switch (this.gameTurn) {
       case 1:
         i = 8
         break
       case 2:
-        i = playedInTheCenter ? 8 : 4
-        break
-      case 3:
-        if (playedInTheCenter) {
-          i = 0
-        } else if (playedInAnEdge) {
-          i = gameState[7] === humanSymbol ? 2 : 6
+        if (playedInAnEdge) {
+          i = gameState[1] === humanSymbol || gameState[3] === humanSymbol
+            ? 0
+            : 8
         } else {
-          i = gameState[0] === humanSymbol
-            ? 3
-            : gameState[2] === humanSymbol
-              ? 6
-              : 2
+          i = playedInTheCenter ? 8 : 4
         }
         break
+      case 3:
+        if (playedInAnEdge) {
+          i = 4
+        } else if (playedInACorner) {
+          i = gameState[0] === humanSymbol
+            ? 2
+            : 0
+        } else i = 0
+        break
       case 4:
+        if (gameState[4] === cpuSymbol) {
+          if (numCorners === 2) {
+            console.log('hola')
+            i = 1
+          } else {
+            if (gameState[0] === humanSymbol) {
+              i = 8
+            } else if (gameState[2] === humanSymbol) {
+              i = 6
+            } else if (gameState[6] === humanSymbol) {
+              i = 2
+            } else {
+              i = 0
+            }
+          }
+        } else {
+          if (numEdges < 2) {
+
+          }
+        }
         break
       case 5:
         break
@@ -94,6 +127,7 @@ module.exports = {
       default:
         break
     }
+    // console.log(i, playedInTheCenter, playedInACorner, playedInAnEdge)
     gameState[i] = cpuSymbol
     this.gameTurn++
   },
@@ -139,7 +173,6 @@ module.exports = {
     /* istanbul ignore next */
     return num <= 2
   },
-
   gameWin () {
     /*
      * Description:

@@ -72,8 +72,8 @@ test('cpu plays at gameTurn #2', function (t) {
     const actual = gameEngine.gameState
     const expected = [
       ' ', ' ', ' ',
-      ' ', 'x', 'o',
-      ' ', ' ', ' '
+      ' ', ' ', 'o',
+      ' ', ' ', 'x'
     ]
     st.same(actual, expected, 'The cpu played well')
     st.end()
@@ -82,28 +82,8 @@ test('cpu plays at gameTurn #2', function (t) {
 })
 
 test('cpu plays at gameTurn #3', function (t) {
-  t.test(`If the human played in the center, \
-cpu should play in the opposite corner`
-  , function (st) {
-    gameEngine.gameTurn = 3
-    gameEngine.gameState = [
-      ' ', ' ', ' ',
-      ' ', 'o', ' ',
-      ' ', ' ', 'x'
-    ]
-    gameEngine.bestMove()
-    const actual = gameEngine.gameState
-    const expected = [
-      'x', ' ', ' ',
-      ' ', 'o', ' ',
-      ' ', ' ', 'x'
-    ]
-    st.same(actual, expected, 'The cpu made the best play')
-    st.end()
-  })
-
   t.test(`If the human played in an edge, \
-cpu should play at 2nd or 3rd corner`
+cpu should play in the center`
   , function (st) {
     gameEngine.gameTurn = 3
     gameEngine.gameState = [
@@ -114,60 +94,116 @@ cpu should play at 2nd or 3rd corner`
     gameEngine.bestMove()
     let actual = gameEngine.gameState
     let expected = [
-      ' ', ' ', 'x',
       ' ', ' ', ' ',
+      ' ', 'x', ' ',
       ' ', 'o', 'x'
     ]
     st.same(actual, expected, 'The cpu made the best play')
+    st.end()
+  })
 
-    // For the other case (coverage!!!)
+  t.test(`If the human played in corner, \
+cpu should play in any free corner`
+  , function (st) {
     gameEngine.gameTurn = 3
     gameEngine.gameState = [
-      ' ', 'o', ' ',
+      ' ', ' ', ' ',
+      ' ', ' ', ' ',
+      'o', ' ', 'x'
+    ]
+    gameEngine.bestMove()
+    let actual = gameEngine.gameState
+    let expected = [
+      'x', ' ', ' ',
+      ' ', ' ', ' ',
+      'o', ' ', 'x'
+    ]
+    st.same(actual, expected, 'The cpu made the best play')
+
+    gameEngine.gameTurn = 3
+    gameEngine.gameState = [
+      ' ', ' ', 'o',
       ' ', ' ', ' ',
       ' ', ' ', 'x'
     ]
     gameEngine.bestMove()
     actual = gameEngine.gameState
     expected = [
-      ' ', 'o', ' ',
+      'x', ' ', 'o',
       ' ', ' ', ' ',
-      'x', ' ', 'x'
+      ' ', ' ', 'x'
     ]
     st.same(actual, expected, 'The cpu made the best play')
     st.end()
   })
 
-  t.test(`If the human played in an corner`, function (st) {
+  t.test(`If the human played in the center, \
+cpu should play on the opposite corner`
+  , function (st) {
     gameEngine.gameTurn = 3
     gameEngine.gameState = [
-      'o', ' ', ' ',
       ' ', ' ', ' ',
+      ' ', 'o', ' ',
       ' ', ' ', 'x'
     ]
     gameEngine.bestMove()
     let actual = gameEngine.gameState
     let expected = [
-      'o', ' ', ' ',
       'x', ' ', ' ',
+      ' ', 'o', ' ',
       ' ', ' ', 'x'
     ]
     st.same(actual, expected, 'The cpu made the best play')
-
-    gameEngine.gameTurn = 3
-    gameEngine.gameState = [
-      ' ', ' ', ' ',
-      ' ', ' ', ' ',
-      'o', ' ', 'x'
-    ]
-    gameEngine.bestMove()
-    expected = [
-      ' ', ' ', 'x',
-      ' ', ' ', ' ',
-      'o', ' ', 'x'
-    ]
-    actual = gameEngine.gameState
-    st.same(actual, expected, 'The cpu made the best play')
     st.end()
   })
+})
+
+test('cpu plays at gameTurn #4', function (t) {
+  // If a corner
+  gameEngine.gameTurn = 4
+  gameEngine.gameState = [
+    'o', ' ', ' ',
+    ' ', 'x', ' ',
+    ' ', ' ', 'o'
+  ]
+  gameEngine.bestMove()
+  let actual = gameEngine.gameState
+  let expected = [
+    'o', 'x', ' ',
+    ' ', 'x', ' ',
+    ' ', ' ', 'o'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  gameEngine.gameTurn = 4
+  gameEngine.gameState = [
+    ' ', ' ', ' ',
+    'o', 'x', ' ',
+    ' ', ' ', 'o'
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    'x', ' ', ' ',
+    'o', 'x', ' ',
+    ' ', ' ', 'o'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  // If an edge
+  gameEngine.gameTurn = 4
+  gameEngine.gameState = [
+    ' ', ' ', ' ',
+    ' ', ' ', 'o',
+    ' ', ' ', 'x'
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    ' ', ' ', ' ',
+    ' ', ' ', 'o',
+    ' ', ' ', 'x'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+  t.end()
 })
