@@ -16,12 +16,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, `The cpu defended itself:`)
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -31,12 +29,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -46,12 +42,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -63,12 +57,10 @@ test('The cpu should defend itself of this:', function (t) {
     'o', 'o', ' ',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -78,12 +70,10 @@ test('The cpu should defend itself of this:', function (t) {
     'o', ' ', 'o',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -93,12 +83,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', 'o', 'o',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -110,12 +98,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     'o', 'o', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -125,12 +111,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     'o', ' ', 'o'
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -140,12 +124,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     ' ', 'o', 'o'
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -161,12 +143,10 @@ test('The cpu should defend itself of this:', function (t) {
     'o', ' ', ' ',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -176,12 +156,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     'o', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -191,12 +169,10 @@ test('The cpu should defend itself of this:', function (t) {
     'o', ' ', ' ',
     'o', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -208,12 +184,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', 'o', ' ',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -223,12 +197,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     ' ', 'o', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -238,12 +210,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', 'o', ' ',
     ' ', 'o', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -255,12 +225,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', 'o',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -270,12 +238,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     ' ', ' ', 'o'
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -285,12 +251,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', 'o',
     ' ', ' ', 'o'
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -306,12 +270,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', 'o', ' ',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -321,12 +283,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     ' ', ' ', 'o'
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -336,12 +296,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', 'o', ' ',
     ' ', ' ', 'o'
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -353,12 +311,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', 'o', ' ',
     'o', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -368,12 +324,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', ' ', ' ',
     'o', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -383,12 +337,10 @@ test('The cpu should defend itself of this:', function (t) {
     ' ', 'o', ' ',
     ' ', ' ', ' '
   ]
-  console.log(gameEngine.print(), '\n')
   const bool = gameEngine.cpuDefends()
 
   // Checks that it defended itself
   t.ok(bool, 'The cpu defended itself')
-  console.log(gameEngine.print())
   t.end()
 })
 
@@ -435,11 +387,9 @@ for (let i = 0; i < numTest; i++) {
     if (humanWins) {
       console.log('ANS: It should')
       t.equal(cpuDefends, humanWins, 'The cpu defended itself')
-      console.log(gameEngine.print())
     } else {
       console.log('It\'s not necessary')
       t.equal(cpuDefends, humanWins, 'The cpu did anything itself')
-      console.log(gameEngine.print())
     }
     t.end()
   })

@@ -17,7 +17,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -33,7 +32,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -49,7 +47,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -65,7 +62,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -81,7 +77,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -97,7 +92,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -113,7 +107,6 @@ test(`checkForWinMove() returns true at this case
     'x', 'x', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -129,7 +122,6 @@ test(`checkForWinMove() returns true at this case
     'x', ' ', 'x'
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -145,7 +137,6 @@ test(`checkForWinMove() returns true at this case
     ' ', 'x', 'x'
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -162,7 +153,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -178,7 +168,6 @@ test(`checkForWinMove() returns true at this case
     'x', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -194,7 +183,6 @@ test(`checkForWinMove() returns true at this case
     'x', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -210,7 +198,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -226,7 +213,6 @@ test(`checkForWinMove() returns true at this case
     ' ', 'x', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -242,7 +228,6 @@ test(`checkForWinMove() returns true at this case
     ' ', 'x', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -258,7 +243,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -274,7 +258,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', 'x'
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -290,7 +273,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', 'x'
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -308,7 +290,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -324,7 +305,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', 'x'
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -340,7 +320,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', 'x'
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -356,7 +335,6 @@ test(`checkForWinMove() returns true at this case
     ' ', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -372,7 +350,6 @@ test(`checkForWinMove() returns true at this case
     'x', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -388,7 +365,6 @@ test(`checkForWinMove() returns true at this case
     'x', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), true)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })
 
@@ -404,6 +380,5 @@ test(`checkForWinMove() returns false at this case
     'x', ' ', ' '
   ]
   t.equal(gameEngine.checkForWinMove(), false)
-  console.log(`\nThis is the gameState after the play:\n${gameEngine.print()}\n`)
   t.end()
 })

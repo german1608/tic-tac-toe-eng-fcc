@@ -6,6 +6,11 @@ gameEngine.cpuSymbol = 'x'
 
 test('cpu plays at gameTurn #1', function (t) {
   gameEngine.gameTurn = 1
+  gameEngine.gameState = [
+    ' ', ' ', ' ',
+    ' ', ' ', ' ',
+    ' ', ' ', ' '
+  ]
   gameEngine.bestMove()
   const actual = gameEngine.gameState
   const expected = [
