@@ -67,11 +67,26 @@ test('cpu plays at gameTurn #2', function (t) {
       ' ', ' ', ' '
     ]
     gameEngine.bestMove()
-    const actual = gameEngine.gameState
-    const expected = [
+    let actual = gameEngine.gameState
+    let expected = [
       ' ', ' ', ' ',
       ' ', ' ', 'o',
       ' ', ' ', 'x'
+    ]
+    st.same(actual, expected, 'The cpu played well')
+
+    gameEngine.gameTurn = 2
+    gameEngine.gameState = [
+      ' ', ' ', ' ',
+      'o', ' ', ' ',
+      ' ', ' ', ' '
+    ]
+    gameEngine.bestMove()
+    actual = gameEngine.gameState
+    expected = [
+      'x', ' ', ' ',
+      'o', ' ', ' ',
+      ' ', ' ', ' '
     ]
     st.same(actual, expected, 'The cpu played well')
     st.end()
@@ -120,14 +135,14 @@ cpu should play in any free corner`
 
     gameEngine.gameTurn = 3
     gameEngine.gameState = [
-      ' ', ' ', 'o',
+      'o', ' ', ' ',
       ' ', ' ', ' ',
       ' ', ' ', 'x'
     ]
     gameEngine.bestMove()
     actual = gameEngine.gameState
     expected = [
-      'x', ' ', 'o',
+      'o', ' ', 'x',
       ' ', ' ', ' ',
       ' ', ' ', 'x'
     ]
@@ -189,21 +204,84 @@ test('cpu plays at gameTurn #4', function (t) {
   ]
   t.same(actual, expected, 'The cpu played well')
 
+  gameEngine.gameTurn = 4
+  gameEngine.gameState = [
+    'o', ' ', ' ',
+    ' ', 'x', ' ',
+    ' ', 'o', ' '
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    'o', ' ', ' ',
+    ' ', 'x', ' ',
+    ' ', 'o', 'x'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  gameEngine.gameTurn = 4
+  gameEngine.gameState = [
+    ' ', ' ', 'o',
+    ' ', 'x', ' ',
+    ' ', 'o', ' '
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    ' ', ' ', 'o',
+    ' ', 'x', ' ',
+    'x', 'o', ' '
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  gameEngine.gameTurn = 4
+  gameEngine.gameState = [
+    ' ', 'o', ' ',
+    ' ', 'x', ' ',
+    'o', ' ', ' '
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    ' ', 'o', 'x',
+    ' ', 'x', ' ',
+    'o', ' ', ' '
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
   // If 1st turn was an edge
-  // gameEngine.gameTurn = 4
-  // gameEngine.gameState = [
-  //   ' ', ' ', ' ',
-  //   ' ', ' ', 'o',
-  //   ' ', ' ', 'x'
-  // ]
-  // gameEngine.bestMove()
-  // actual = gameEngine.gameState
-  // expected = [
-  //   ' ', ' ', ' ',
-  //   ' ', ' ', 'o',
-  //   ' ', ' ', 'x'
-  // ]
-  // t.same(actual, expected, 'The cpu played well')
+  gameEngine.humanStartPosition = 'edg'
+  gameEngine.gameTurn = 4
+  gameEngine.gameState = [
+    ' ', 'o', ' ',
+    ' ', ' ', 'o',
+    ' ', ' ', 'x'
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    ' ', 'o', ' ',
+    ' ', 'x', 'o',
+    ' ', ' ', 'x'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  // I don't have to worry about when the first player goes in the center
+  gameEngine.humanStartPosition = 'cen'
+  gameEngine.gameTurn = 4
+  gameEngine.gameState = [
+    ' ', ' ', 'o',
+    ' ', 'o', ' ',
+    ' ', ' ', 'x'
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    ' ', ' ', 'o',
+    ' ', 'o', ' ',
+    'x', ' ', 'x'
+  ]
+  t.same(actual, expected, 'The cpu played well')
 
   t.end()
 })

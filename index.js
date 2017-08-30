@@ -55,6 +55,7 @@ module.exports = {
     if (this.checkForWinMove() || this.cpuDefends()) { return }
 
     const {gameState, cpuSymbol, humanStartPosition} = this
+    /* istanbul ignore next */
     const humanSymbol = cpuSymbol === 'x' ? 'o' : 'x'
     const playedInTheCenter = gameState[4] === humanSymbol
     const playedInAnEdge = gameState[1] === humanSymbol ||
@@ -103,23 +104,24 @@ module.exports = {
             if (numCorners === 2) {
               i = 1
             } else {
-              if (gameState[0] === cpuSymbol) {
+              // console.log(this.print())
+              if (gameState[0] === humanSymbol) {
                 i = 8
-              } else if (gameState[2] === cpuSymbol) {
+              } else if (gameState[2] === humanSymbol) {
                 i = 6
-              } else if (gameState[6] === cpuSymbol) {
+              } else if (gameState[6] === humanSymbol) {
                 i = 2
               } else {
                 i = 0
               }
             }
             break
-          case 'edg':
-
-            break
           default:
+            i = 4
             break
         }
+        break
+      case 5:
         break
       default:
         break
