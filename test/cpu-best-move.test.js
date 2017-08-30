@@ -372,3 +372,149 @@ test('cpu plays at gameTurn #5', function (t) {
 
   t.end()
 })
+
+test('cpu plays at gameTurn #6', function (t) {
+  // If the human started in a corner and played then in an edge
+  t.test('If the human started in a corner and played then in an edge', (st) => {
+    gameEngine.humanStartPosition = 'cor'
+    gameEngine.gameTurn = 6
+    gameEngine.gameState = [
+      'o', ' ', ' ',
+      ' ', 'x', 'o',
+      ' ', 'o', 'x'
+    ]
+    gameEngine.bestMove()
+    let actual = gameEngine.gameState
+    let expected = [
+      'o', ' ', 'x',
+      ' ', 'x', 'o',
+      ' ', 'o', 'x'
+    ]
+    st.same(actual, expected, 'The cpu played well')
+
+    gameEngine.humanStartPosition = 'cor'
+    gameEngine.gameTurn = 6
+    gameEngine.gameState = [
+      ' ', ' ', 'o',
+      'o', 'x', ' ',
+      'x', 'o', ' '
+    ]
+    gameEngine.bestMove()
+    actual = gameEngine.gameState
+    expected = [
+      'x', ' ', 'o',
+      'o', 'x', ' ',
+      'x', 'o', ' '
+    ]
+    st.same(actual, expected, 'The cpu played well')
+
+    gameEngine.humanStartPosition = 'cor'
+    gameEngine.gameTurn = 6
+    gameEngine.gameState = [
+      ' ', 'o', 'x',
+      ' ', 'x', 'o',
+      'o', ' ', ' '
+    ]
+    gameEngine.bestMove()
+    actual = gameEngine.gameState
+    expected = [
+      'x', 'o', 'x',
+      ' ', 'x', 'o',
+      'o', ' ', ' '
+    ]
+    st.same(actual, expected, 'The cpu played well')
+
+    gameEngine.humanStartPosition = 'cor'
+    gameEngine.gameTurn = 6
+    gameEngine.gameState = [
+      'x', 'o', ' ',
+      'o', 'x', ' ',
+      ' ', ' ', 'o'
+    ]
+    gameEngine.bestMove()
+    actual = gameEngine.gameState
+    expected = [
+      'x', 'o', 'x',
+      'o', 'x', ' ',
+      ' ', ' ', 'o'
+    ]
+    st.same(actual, expected, 'The cpu played well')
+    st.end()
+  })
+
+  // If the human started in a corner and played then in a corner
+  t.test('If the human started in a corner and played then in an edge', (st) => {
+    // Play in any blank space you want (by default on the first to avoid randomness)
+    gameEngine.humanStartPosition = 'cor'
+    gameEngine.gameTurn = 6
+    gameEngine.gameState = [
+      'o', 'x', 'o',
+      ' ', 'x', ' ',
+      ' ', 'o', ' '
+    ]
+    gameEngine.bestMove()
+    let actual = gameEngine.gameState
+    let expected = [
+      'o', 'x', 'o',
+      'x', 'x', ' ',
+      ' ', 'o', ' '
+    ]
+    st.same(actual, expected, 'The cpu played well')
+
+    st.end()
+  })
+
+  // If the human started in an edge
+  t.test('If the human started in an edge and made a random play', function (st) {
+    gameEngine.humanStartPosition = 'edg'
+    gameEngine.gameTurn = 6
+    gameEngine.gameState = [
+      'o', ' ', ' ',
+      ' ', 'x', 'o',
+      ' ', 'o', 'x'
+    ]
+    gameEngine.bestMove()
+    let actual = gameEngine.gameState
+    let expected = [
+      'o', 'x', ' ',
+      ' ', 'x', 'o',
+      ' ', 'o', 'x'
+    ]
+    st.same(actual, expected, 'The cpu should play in any blank space')
+
+    gameEngine.humanStartPosition = 'edg'
+    gameEngine.gameTurn = 6
+    gameEngine.gameState = [
+      'o', ' ', ' ',
+      'x', 'o', 'o',
+      ' ', ' ', 'x'
+    ]
+    gameEngine.bestMove()
+    actual = gameEngine.gameState
+    expected = [
+      'o', 'x', ' ',
+      'x', 'o', 'o',
+      ' ', ' ', 'x'
+    ]
+    st.same(actual, expected, 'The cpu should play in any blank space')
+
+    st.end()
+  })
+  t.end()
+})
+
+// There's no need to test gameTurn #7
+
+test('cpu plays at gameTurn #8', function (t) {
+  gameEngine.cpuSymbol = 'x'
+  gameEngine.gameTurn = 8
+  gameEngine.gameState = [
+    ' ', ' ', ' ',
+    ' ', ' ', ' ',
+    ' ', ' ', ' '
+  ]
+  gameEngine.bestMove()
+  const actual = gameEngine.gameState
+  const expected = []
+  t.same(actual, expected)
+})

@@ -74,6 +74,7 @@ module.exports = {
     })
     // console.log(numCorners, numEdges)
     let i = 0
+    console.log(this.humanStartPosition)
     switch (this.gameTurn) {
       case 1:
         i = 8
@@ -102,7 +103,6 @@ module.exports = {
           i = 0
           this.humanStartPosition = 'cen'
         }
-
         break
       case 4:
         if (humanStartPosition === 'cor') {
@@ -127,10 +127,21 @@ module.exports = {
           i = gameState[5] === humanSymbol ? 7 : 5
         } else i = 6
         break
+      case 6:
+        if (humanStartPosition === 'edg' || humanStartPosition === 'cen' ||
+           numCorners === 2) {
+          i = gameState.indexOf(' ')
+          console.log(i)
+        } else {
+          i = gameState[2] === humanSymbol || gameState[6] === humanSymbol
+            ? 0
+            : 2
+        }
+        break
       default:
+        i = gameState.indexOf(' ')
         break
     }
-    // console.log(i, playedInTheCenter, playedInACorner, playedInAnEdge)
     gameState[i] = cpuSymbol
     this.gameTurn++
   },
