@@ -91,37 +91,41 @@ module.exports = {
         break
       case 3:
         if (playedInAnEdge) {
+          this.humanStartPosition = 'edg'
           i = 4
         } else if (playedInACorner) {
+          this.humanStartPosition = 'cor'
           i = gameState[0] === humanSymbol
             ? 2
             : 0
-        } else i = 0
+        } else {
+          i = 0
+          this.humanStartPosition = 'cen'
+        }
+
         break
       case 4:
-        switch (humanStartPosition) {
-          case 'cor':
-            if (numCorners === 2) {
-              i = 1
+        if (humanStartPosition === 'cor') {
+          if (numCorners === 2) {
+            i = 1
+          } else {
+            // console.log(this.print())
+            if (gameState[0] === humanSymbol) {
+              i = 8
+            } else if (gameState[2] === humanSymbol) {
+              i = 6
+            } else if (gameState[6] === humanSymbol) {
+              i = 2
             } else {
-              // console.log(this.print())
-              if (gameState[0] === humanSymbol) {
-                i = 8
-              } else if (gameState[2] === humanSymbol) {
-                i = 6
-              } else if (gameState[6] === humanSymbol) {
-                i = 2
-              } else {
-                i = 0
-              }
+              i = 0
             }
-            break
-          default:
-            i = 4
-            break
-        }
+          }
+        } else i = 4
         break
       case 5:
+        if (humanStartPosition === 'edg') {
+          i = gameState[5] === humanSymbol ? 7 : 5
+        } else i = 6
         break
       default:
         break

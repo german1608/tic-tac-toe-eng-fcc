@@ -285,3 +285,90 @@ test('cpu plays at gameTurn #4', function (t) {
 
   t.end()
 })
+
+test('cpu plays at gameTurn #5', function (t) {
+  // If 2st turn was an edge
+  gameEngine.humanStartPosition = 'edg'
+  gameEngine.gameTurn = 5
+  gameEngine.gameState = [
+    'o', ' ', ' ',
+    ' ', 'x', 'o',
+    ' ', ' ', 'x'
+  ]
+  gameEngine.bestMove()
+  let actual = gameEngine.gameState
+  let expected = [
+    'o', ' ', ' ',
+    ' ', 'x', 'o',
+    ' ', 'x', 'x'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  gameEngine.humanStartPosition = 'edg'
+  gameEngine.gameTurn = 5
+  gameEngine.gameState = [
+    'o', ' ', ' ',
+    ' ', 'x', ' ',
+    ' ', 'o', 'x'
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    'o', ' ', ' ',
+    ' ', 'x', 'x',
+    ' ', 'o', 'x'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  // If 2nd turn was in a corner
+  gameEngine.humanStartPosition = 'cor'
+  gameEngine.gameTurn = 5
+  gameEngine.gameState = [
+    'o', ' ', 'x',
+    ' ', ' ', 'o',
+    ' ', ' ', 'x'
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    'o', ' ', 'x',
+    ' ', ' ', 'o',
+    'x', ' ', 'x'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  gameEngine.humanStartPosition = 'cor'
+  gameEngine.gameTurn = 5
+  gameEngine.gameState = [
+    'x', ' ', 'o',
+    ' ', 'o', ' ',
+    ' ', ' ', 'x'
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    'x', ' ', 'o',
+    ' ', 'o', ' ',
+    'x', ' ', 'x'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  // If 2nd turn was in the center
+  gameEngine.humanStartPosition = 'cen'
+  gameEngine.gameTurn = 5
+  gameEngine.gameState = [
+    'x', ' ', ' ',
+    ' ', 'o', ' ',
+    'o', ' ', 'x'
+  ]
+  gameEngine.bestMove()
+  actual = gameEngine.gameState
+  expected = [
+    'x', ' ', 'x',
+    ' ', 'o', ' ',
+    'o', ' ', 'x'
+  ]
+  t.same(actual, expected, 'The cpu played well')
+
+  t.end()
+})
