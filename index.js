@@ -2,7 +2,8 @@
 module.exports = {
   gameTurn: 1,
   cpuSymbol: '',
-  cpuStart: true,
+  cpuStartPosition: true,
+  humanStartPosition: '',
   // Default gameState
   gameState: [
     ' ', ' ', ' ',
@@ -53,7 +54,7 @@ module.exports = {
      */
     if (this.checkForWinMove() || this.cpuDefends()) { return }
 
-    const {gameState, cpuSymbol} = this
+    const {gameState, cpuSymbol, humanStartPosition} = this
     const humanSymbol = cpuSymbol === 'x' ? 'o' : 'x'
     const playedInTheCenter = gameState[4] === humanSymbol
     const playedInAnEdge = gameState[1] === humanSymbol ||
@@ -70,7 +71,7 @@ module.exports = {
         } else numEdges++
       }
     })
-    console.log(numCorners, numEdges)
+    // console.log(numCorners, numEdges)
     let i = 0
     switch (this.gameTurn) {
       case 1:
@@ -78,10 +79,12 @@ module.exports = {
         break
       case 2:
         if (playedInAnEdge) {
+          this.humanStartPosition = 'edg'
           i = gameState[1] === humanSymbol || gameState[3] === humanSymbol
             ? 0
             : 8
         } else {
+          this.humanStartPosition = playedInTheCenter ? 'cen' : 'cor'
           i = playedInTheCenter ? 8 : 4
         }
         break
@@ -95,34 +98,28 @@ module.exports = {
         } else i = 0
         break
       case 4:
-        if (gameState[4] === cpuSymbol) {
-          if (numCorners === 2) {
-            console.log('hola')
-            i = 1
-          } else {
-            if (gameState[0] === humanSymbol) {
-              i = 8
-            } else if (gameState[2] === humanSymbol) {
-              i = 6
-            } else if (gameState[6] === humanSymbol) {
-              i = 2
+        switch (humanStartPosition) {
+          case 'cor':
+            if (numCorners === 2) {
+              i = 1
             } else {
-              i = 0
+              if (gameState[0] === cpuSymbol) {
+                i = 8
+              } else if (gameState[2] === cpuSymbol) {
+                i = 6
+              } else if (gameState[6] === cpuSymbol) {
+                i = 2
+              } else {
+                i = 0
+              }
             }
-          }
-        } else {
-          if (numEdges < 2) {
+            break
+          case 'edg':
 
-          }
+            break
+          default:
+            break
         }
-        break
-      case 5:
-        break
-      case 6:
-        break
-      case 7:
-        break
-      case 8:
         break
       default:
         break

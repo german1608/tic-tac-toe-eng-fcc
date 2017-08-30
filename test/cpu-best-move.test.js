@@ -23,8 +23,6 @@ test('cpu plays at gameTurn #1', function (t) {
 })
 
 test('cpu plays at gameTurn #2', function (t) {
-  t.comment('Here begin some generic cases for when the human starts')
-
   t.test('If the human played in a corner, cpu should play in the center', st => {
     gameEngine.gameTurn = 2
     gameEngine.gameState = [
@@ -61,7 +59,7 @@ test('cpu plays at gameTurn #2', function (t) {
     st.end()
   })
 
-  t.test('If the human played in an edge, cpu should play in the center', st => {
+  t.test('If the human played in an edge, cpu should play in some corner', st => {
     gameEngine.gameTurn = 2
     gameEngine.gameState = [
       ' ', ' ', ' ',
@@ -159,7 +157,8 @@ cpu should play on the opposite corner`
 })
 
 test('cpu plays at gameTurn #4', function (t) {
-  // If a corner
+  // If 1st turn was a corner
+  gameEngine.humanStartPosition = 'cor'
   gameEngine.gameTurn = 4
   gameEngine.gameState = [
     'o', ' ', ' ',
@@ -190,20 +189,21 @@ test('cpu plays at gameTurn #4', function (t) {
   ]
   t.same(actual, expected, 'The cpu played well')
 
-  // If an edge
-  gameEngine.gameTurn = 4
-  gameEngine.gameState = [
-    ' ', ' ', ' ',
-    ' ', ' ', 'o',
-    ' ', ' ', 'x'
-  ]
-  gameEngine.bestMove()
-  actual = gameEngine.gameState
-  expected = [
-    ' ', ' ', ' ',
-    ' ', ' ', 'o',
-    ' ', ' ', 'x'
-  ]
-  t.same(actual, expected, 'The cpu played well')
+  // If 1st turn was an edge
+  // gameEngine.gameTurn = 4
+  // gameEngine.gameState = [
+  //   ' ', ' ', ' ',
+  //   ' ', ' ', 'o',
+  //   ' ', ' ', 'x'
+  // ]
+  // gameEngine.bestMove()
+  // actual = gameEngine.gameState
+  // expected = [
+  //   ' ', ' ', ' ',
+  //   ' ', ' ', 'o',
+  //   ' ', ' ', 'x'
+  // ]
+  // t.same(actual, expected, 'The cpu played well')
+
   t.end()
 })
