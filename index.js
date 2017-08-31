@@ -2,6 +2,20 @@
 
 /**
  * Constructs and string representing `this.gameState`
+ * @example
+ * this.gameState = [
+ *  'x', ' ', ' ',
+ *  ' ', ' ', 'x',
+ *  ' ', 'o', ' '
+ * ]
+ * console.log(this.print())
+ * /* Output:
+ *    x |   |
+ *   ---+---+---
+ *      |   | x
+ *   ---+---+---
+ *      | o |
+ * *\/
  * @returns {string}
  */
 function print () {
@@ -14,6 +28,13 @@ function print () {
  * game and determines if it's a winning game.
  * Returns true if it's a winning game, false otherwise.
  * @returns {boolean}
+ * @example
+ * this.gameState = [
+ *   ' ', ' ', 'x',
+ *   ' ', 'x', ' ',
+ *   'x', ' ', ' '
+ * ]
+ * if (this.gameWin) console.log('I won!')
  */
 function gameWin () {
   const game = this.gameState
@@ -42,6 +63,15 @@ function gameWin () {
  * Function that determines if the cpu should defend itself. In that case,
  * it makes the move changing this.gameState
  * @returns {boolean} Boolean representing if the cpu should defend
+ * @example
+ * // Assuming the cpu is 'x'
+ * this.gameState = [
+ *   ' ', 'o', 'x',
+ *   ' ', ' ', ' ',
+ *   ' ', 'o', ' '
+ * ]
+ * if (this.cpuDefends()) console.log('The cpu defended itself')
+ * // Output: The cpu defended itself
  */
 function cpuDefends () {
   /* istanbul ignore next */
@@ -65,6 +95,9 @@ function cpuDefends () {
  * Changes `this.gameState`. This method doesn't compute a move by analizing
  * `this.gameState`. It is following an strategy. If you change the gameState
  * it may not work properly
+ * @returns {undefined} Changes this.gameState
+ * @example
+ * // See test/cpu-best-move.test.js
  */
 function bestMove () {
   if (this.checkForWinMove() || this.cpuDefends()) { return }
@@ -162,6 +195,14 @@ function bestMove () {
  * `this.gameState` . Otherwise, returns false and doesn't do anything
  *  False otherwise
  * @returns {boolean}
+ * @example
+ * this.gameState = [
+ *   ' ', ' ', ' ',
+ *   ' ', ' ', ' ',
+ *   ' ', ' ', ' '
+ * ]
+ * if (this.checkForWinMove()) console.log('The cpu won')
+ * // Output: The cpu won
  */
 function checkForWinMove () {
   for (let i = 0; i < 9; ++i) {
