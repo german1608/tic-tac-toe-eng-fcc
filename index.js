@@ -63,17 +63,14 @@ module.exports = {
       gameState[7] === humanSymbol
     const playedInACorner = !playedInTheCenter && !playedInAnEdge
     let numCorners = 0
-    let numEdges = 0
     gameState.forEach((box, i) => {
       if (box === humanSymbol) {
         if (i === 0 || i === 2 || i === 6 || i === 8) {
           numCorners++
-        } else numEdges++
+        }
       }
     })
-    // console.log(numCorners, numEdges)
     let i = 0
-    console.log(this.humanStartPosition)
     switch (this.gameTurn) {
       case 1:
         i = 8
@@ -108,7 +105,6 @@ module.exports = {
           if (numCorners === 2) {
             i = 1
           } else {
-            // console.log(this.print())
             if (gameState[0] === humanSymbol) {
               i = 8
             } else if (gameState[2] === humanSymbol) {
@@ -130,7 +126,6 @@ module.exports = {
         if (humanStartPosition === 'edg' || humanStartPosition === 'cen' ||
            numCorners === 2) {
           i = gameState.indexOf(' ')
-          console.log(i)
         } else {
           i = gameState[2] === humanSymbol || gameState[6] === humanSymbol
             ? 0
