@@ -509,12 +509,18 @@ test('cpu plays at gameTurn #8', function (t) {
   gameEngine.cpuSymbol = 'x'
   gameEngine.gameTurn = 8
   gameEngine.gameState = [
-    ' ', ' ', ' ',
-    ' ', ' ', ' ',
-    ' ', ' ', ' '
+    'o', 'x', ' ',
+    'x', 'o', 'o',
+    ' ', 'o', 'x'
   ]
   gameEngine.bestMove()
   const actual = gameEngine.gameState
-  const expected = []
+  const expected = [
+    'o', 'x', 'x',
+    'x', 'o', 'o',
+    ' ', 'o', 'x'
+  ]
+
   t.same(actual, expected)
+  t.end()
 })

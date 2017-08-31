@@ -2,7 +2,6 @@
 module.exports = {
   gameTurn: 1,
   cpuSymbol: '',
-  cpuStartPosition: true,
   humanStartPosition: '',
   // Default gameState
   gameState: [
@@ -169,7 +168,7 @@ module.exports = {
     return false
   },
   /* istanbul ignore next */
-  cpufirstPlayer () {
+  cpuFirstPlayer () {
     /*
      * Description
      *  Function that determines who'll be the first player between
@@ -182,9 +181,7 @@ module.exports = {
      *  if the random number is less or equal than 2 (75% prob) the
      *  first player will be the CPU. Otherwise, the human.
      */
-    /* istanbul ignore next */
     const num = Math.floor(Math.random() * 4)
-    /* istanbul ignore next */
     return num <= 2
   },
   gameWin () {
