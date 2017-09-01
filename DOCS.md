@@ -31,6 +31,16 @@ the CPU or the human
 If the random number is less or equal than 2 (75% prob) the
 first player will be the CPU. Otherwise, the human will start.</p>
 </dd>
+<dt><a href="#setPlay">setPlay(idx)</a> ⇒ <code>undefined</code></dt>
+<dd><p>Filler for the gameBoard. The positioning of the gameboard is as follows</p>
+<pre><code> 0 | 1 | 2
+---+---+---
+ 3 | 4 | 5
+---+---+---
+ 6 | 7 | 8
+</code></pre><p>If the idx is incorrect or if the position is taken, returns false.
+Otherwise, returns true and set the position</p>
+</dd>
 </dl>
 
 <a name="print"></a>
@@ -133,3 +143,47 @@ If the random number is less or equal than 2 (75% prob) the
 first player will be the CPU. Otherwise, the human will start.
 
 **Kind**: global function  
+<a name="setPlay"></a>
+
+## setPlay(idx) ⇒ <code>undefined</code>
+Filler for the gameBoard. The positioning of the gameboard is as follows
+```
+ 0 | 1 | 2
+---+---+---
+ 3 | 4 | 5
+---+---+---
+ 6 | 7 | 8
+```
+If the idx is incorrect or if the position is taken, returns false.
+Otherwise, returns true and set the position
+
+**Kind**: global function  
+**Returns**: <code>undefined</code> - Changes `this.gameState`  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| idx | <code>number</code> | Index where the human played |
+
+**Example**  
+```js
+gameEngine.gameState = [
+  ' ', ' ', ' ',
+  ' ', ' ', ' ',
+  ' ', ' ', ' '
+]
+if (gameEngine.setPlay(1)) {
+  console.log(gameEngine.print())
+}
+/* Output:
+     | o |
+  ---+---+---
+     |   |
+  ---+---+---
+     |   |
+*\/
+
+if (gameEngine.set(1)) {
+  console.log('This wont execute')
+}
+// Output: undefined
+```
