@@ -271,6 +271,14 @@ function setPlay (idx) {
   return true
 }
 
+/**
+ * Determines if the game is a draw or not.
+ * @return {boolean} Represents if the game is a draw.
+ */
+function draw () {
+  if (this.gameWin() || this.gameTurn < 10) return false
+  return true
+}
 module.exports = {
   gameTurn: 1,
   cpuSymbol: '',
@@ -287,6 +295,7 @@ module.exports = {
   checkForWinMove,
   cpuFirstPlayer,
   setPlay,
+  draw,
   gameWin
 }
 /* eslint-disable no-useless-return */
