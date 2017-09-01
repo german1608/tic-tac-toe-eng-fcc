@@ -1,5 +1,5 @@
 {
-  "name": "tic-tac-toe-eng-fcc",
+  "name": "ttt-eng-fcc",
   "version": "1.0.0",
   "description": "A tic-tac-toe AI engine for a fCC project",
   "main": "index.js",
