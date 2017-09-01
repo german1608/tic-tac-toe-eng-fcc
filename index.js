@@ -279,6 +279,37 @@ function draw () {
   if (this.gameWin() || this.gameTurn < 10) return false
   return true
 }
+
+/**
+ * Determines if the cpu wins
+ * @param {array} g An array that represents the gameState
+ * @param {string} c A character that represents what is the symbol of cpu
+ * @return {boolean} True if the cpu wins, false otherwise.
+ */
+function cpuWin (g, c) {
+  return (g[0] === c && g[1] === c && g[2] === c) ||
+    (g[3] === c && g[4] === c && g[5] === c) ||
+    (g[6] === c && g[7] === c && g[8] === c) ||
+    // Testing for diagonal matches
+    (g[0] === c && g[4] === c && g[8] === c) ||
+    (g[2] === c && g[4] === c && g[6] === c) ||
+    // Testing for columns
+    (g[0] === c && g[3] === c && g[6] === c) ||
+    (g[1] === c && g[4] === c && g[7] === c) ||
+    (g[2] === c && g[5] === c && g[8] === c)
+}
+
+/**
+ * Determines who won
+ * @return {string} 'cpu', 'human' or 'none'
+ */
+function whoWon () {
+  if (this.gameWin()) {
+    if (cpuWin(this.gameState, this.cpuSymbol)) return 'cpu'
+    else return 'human'
+  } else return 'none'
+}
+
 module.exports = {
   gameTurn: 1,
   cpuSymbol: '',
@@ -290,9 +321,12 @@ module.exports = {
     ' ', ' ', ' '
   ],
   print,
+  whoWon,
+
   bestMove,
   cpuDefends,
   checkForWinMove,
+
   cpuFirstPlayer,
   setPlay,
   draw,
