@@ -281,9 +281,8 @@ function setPlay (idx) {
  * Determines if the game is a draw or not.
  * @return {boolean} Represents if the game is a draw.
  */
-function draw () {
-  if (this.gameWin() || this.gameTurn < 10) return false
-  return true
+function isFinish () {
+  return this.gameWin() || this.gameTurn >= 10
 }
 
 /**
@@ -292,6 +291,7 @@ function draw () {
  * @param {string} c A character that represents what is the symbol of cpu
  * @return {boolean} True if the cpu wins, false otherwise.
  */
+/* istanbul ignore next */
 function cpuWin (g, c) {
   return (g[0] === c && g[1] === c && g[2] === c) ||
     (g[3] === c && g[4] === c && g[5] === c) ||
@@ -320,6 +320,7 @@ function whoWon () {
  * Initialiazes the game setting gameState to an empty board and gameTurn to 1
  * @return {undefined}
  */
+/* istanbul ignore next */
 function init (sym) {
   this.cpuSymbol = sym
   this.gameTurn = 1
@@ -350,7 +351,7 @@ module.exports = {
 
   cpuFirstPlayer,
   setPlay,
-  draw,
+  isFinish,
   gameWin
 }
 /* eslint-disable no-useless-return */
