@@ -1,6 +1,8 @@
 /* eslint-disable no-useless-return */
 
 /**
+ * _**(For dev purposes)**_
+ *
  * Constructs and string representing `this.gameState`
  * @example
  * this.gameState = [
@@ -60,6 +62,8 @@ function gameWin () {
 }
 
 /**
+ * _**(For dev purposes)**_
+ *
  * Function that determines if the cpu should defend itself. In that case,
  * it makes the move changing this.gameState
  * @returns {boolean} Boolean representing if the cpu should defend
@@ -190,6 +194,8 @@ function bestMove () {
 }
 
 /**
+ * _**(For dev purposes)**_
+ *
  * Function that checks if the cpu can win at that the current turn
  * Returns true if the computer can win at that turn. Also change
  * `this.gameState` . Otherwise, returns false and doesn't do anything
