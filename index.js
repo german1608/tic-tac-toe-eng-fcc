@@ -229,6 +229,48 @@ function cpuFirstPlayer () {
   return num <= 2
 }
 
+/**
+ * Filler for the gameBoard. The positioning of the gameboard is as follows
+ * ```
+ *  0 | 1 | 2
+ * ---+---+---
+ *  3 | 4 | 5
+ * ---+---+---
+ *  6 | 7 | 8
+ * ```
+ * If the idx is incorrect or if the position is taken, returns false.
+ * Otherwise, returns true and set the position
+ * @param {number} idx Index where the human played
+ * @returns {undefined} Changes `this.gameState`
+ * @example
+ * gameEngine.gameState = [
+ *   ' ', ' ', ' ',
+ *   ' ', ' ', ' ',
+ *   ' ', ' ', ' '
+ * ]
+ * if (gameEngine.setPlay(1)) {
+ *   console.log(gameEngine.print())
+ * }
+ * /* Output:
+ *      | o |
+ *   ---+---+---
+ *      |   |
+ *   ---+---+---
+ *      |   |
+ * *\/
+ *
+ * if (gameEngine.set(1)) {
+ *   console.log('This wont execute')
+ * }
+ * // Output: undefined
+ */
+function setPlay (idx) {
+  if (idx < 0 || idx > 8 || this.gameState[idx] !== ' ') return false
+  /* istanbul ignore next */
+  this.gameState[idx] = this.cpuSymbol === 'x' ? 'o' : 'x'
+  return true
+}
+
 module.exports = {
   gameTurn: 1,
   cpuSymbol: '',
@@ -244,6 +286,7 @@ module.exports = {
   cpuDefends,
   checkForWinMove,
   cpuFirstPlayer,
+  setPlay,
   gameWin
 }
 /* eslint-disable no-useless-return */
