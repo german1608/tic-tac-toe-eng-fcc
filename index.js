@@ -316,6 +316,20 @@ function whoWon () {
   } else return 'none'
 }
 
+/*
+ * Initialiazes the game setting gameState to an empty board and gameTurn to 1
+ * @return {undefined}
+ */
+function init (sym) {
+  this.cpuSymbol = sym
+  this.gameTurn = 1
+  this.gameState = [
+    ' ', ' ', ' ',
+    ' ', ' ', ' ',
+    ' ', ' ', ' '
+  ]
+}
+
 module.exports = {
   gameTurn: 1,
   cpuSymbol: '',
@@ -328,6 +342,7 @@ module.exports = {
   ],
   print,
   whoWon,
+  init,
 
   bestMove,
   cpuDefends,
